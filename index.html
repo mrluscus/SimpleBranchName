@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <fieldset>
+        <legend>Task details:</legend>
+        <form>
+            <div>
+                <label for="task-type">Type of the task</label>
+
+                <input type="radio" name="tasktype" id="task1" value="feature" checked />
+                <label for="task1">Feature</label>
+
+                <input type="radio" name="tasktype" id="task2" value="issue" />
+                <label for="task2">Issue</label>
+            </div>
+
+            <div class="task">
+                <label for="tasknumber">Task number:</label>
+                <input type="text" id="tasknumber" name="taskntasknumberame" placeholder="Number of the task to wrap it" />
+            </div>
+
+            <div class="task">
+                <label for="taskname">Task name:</label>
+                <input type="text" id="taskname" name="taskname" placeholder="Name of the task to wrap it" />
+            </div>
+
+            <div>
+                <input type="button" onclick="convertName(this.form)" value="Convert the name">
+            </div>
+        </form>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Result:</legend>
+        <div>
+            <textarea id="result" class="result"></textarea>
+        </div>
+        <div>
+            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+        </div>
+    </fieldset>
+
+</body>
+
+</html>
