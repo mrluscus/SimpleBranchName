@@ -32,13 +32,18 @@ function convertName(form) {
 
     if (!isError) {
         var taskType = elems.tasktype.value;
-        var taskNumber = elems.tasknumber.value;
-        var taskName = elems.taskname.value.replace(/\s*-/g, '-').replace(/-\s*/g, '-').replace(/\s+/g, '-').toLowerCase();
+        var taskNumber = elems.tasknumber.value.trim();
+        var taskName = elems.taskname.value
+            .trim()
+            .replace(/\s*-/g, '-')
+            .replace(/-\s*/g, '-')
+            .replace(/\s+/g, '-')
+            .toLowerCase();
         result.value = `${taskType}-${taskNumber}-${taskName}`;
     }
 }
 
-function copyToClipboard(){
+function copyToClipboard() {
     var copyText = document.getElementById("result");
     copyText.select();
     document.execCommand("copy");
