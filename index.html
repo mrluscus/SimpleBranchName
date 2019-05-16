@@ -1,59 +1,71 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <script src="script.js"></script>
-    <link href="style.css" rel="stylesheet">
-</head>
+    <link href="style.css" rel="stylesheet" />
+  </head>
 
-<body>
+  <body>
     <fieldset>
-        <legend>Task details:</legend>
-        <form>
-            <div>
-                <label for="task-type">Type of the task</label>
+      <legend>Task details:</legend>
+      <form>
+        <div>
+          <label for="task-type">Type of the task</label>
 
-                <input type="radio" name="tasktype" id="task1" value="SN" checked />
-                <label for="task1">SN</label>
+          <input type="radio" name="tasktype" id="sn" value="SN" checked />
+          <label for="task1">SN</label>
 
-                <input type="radio" name="tasktype" id="task2" value="feature" />
-                <label for="task1">Feature</label>
+          <input type="radio" name="tasktype" id="feature" value="feature" />
+          <label for="task1">Feature</label>
 
-                <input type="radio" name="tasktype" id="task3" value="issue" />
-                <label for="task2">Issue</label>
+          <input type="radio" name="tasktype" id="issue" value="issue" />
+          <label for="task2">Issue</label>
 
-                <input type="radio" name="tasktype" id="task4" value="" />
-                <label for="task1">None</label>
-            </div>
+          <input type="radio" name="tasktype" id="none" value="" />
+          <label for="task1">None</label>
+        </div>
 
-            <div class="task">
-                <label for="tasknumber">Task number:</label>
-                <input type="text" id="tasknumber" name="taskntasknumberame" placeholder="Number of the task to wrap it" />
-            </div>
+        <div class="task">
+          <label for="tasknumber">Task number:</label>
+          <input
+            type="text"
+            id="tasknumber"
+            name="taskntasknumberame"
+            placeholder="Number of the task to wrap it"
+          />
+        </div>
 
-            <div class="task">
-                <label for="taskname">Task name:</label>
-                <input type="text" id="taskname" name="taskname" placeholder="Name of the task to wrap it" />
-            </div>
+        <div class="task">
+          <label for="taskname">Task name:</label>
+          <input
+            type="text"
+            id="taskname"
+            name="taskname"
+            placeholder="Name of the task to wrap it"
+          />
+        </div>
 
-            <div>
-                <input type="button" onclick="convertName(this.form)" value="Convert the name">
-            </div>
-        </form>
+        <div>
+          <input
+            type="button"
+            onclick="convertName(this.form)"
+            value="Convert the name"
+          />
+          <input type="button" onclick="clearAll()" value="Clear" />
+        </div>
+      </form>
     </fieldset>
 
-    <br>
+    <br />
 
     <fieldset>
-        <legend>Result:</legend>
-        <div>
-            <textarea id="result" class="result"></textarea>
-        </div>
-        <div>
-            <button onclick="copyToClipboard()">Copy to Clipboard</button>
-        </div>
+      <legend>Result:</legend>
+      <div>
+        <textarea id="result" class="result"></textarea>
+      </div>
+      <div>
+        <button onclick="copyToClipboard()">Copy to Clipboard</button>
+      </div>
     </fieldset>
-
-</body>
-
+  </body>
 </html>
