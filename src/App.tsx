@@ -9,7 +9,14 @@ const App: React.FC = () => {
     { id: "none", value: "None" }
   ];
 
+  const prefixes = [
+    { id: "none", value: "None" },
+    { id: "backend", value: "backend" },
+    { id: "frontend", value: "frontend" }
+  ];
+
   const [taskType, setTaskType] = useState(taskTypes[0].id);
+  const [prefix, setPrefix] = useState(prefixes[0].id);
   const [taskNumber, setTaskNumber] = useState("");
   const [taskName, setTaskName] = useState("");
   const [result, setResult] = useState("");
@@ -18,7 +25,10 @@ const App: React.FC = () => {
   function handleSubmit(event: any) {
     event.preventDefault();
 
-    var taskTypeName = taskType !== "" ? `${taskType}-` : "";
+    var taskTypeName =
+      taskType !== "" && taskType !== "none" ? `${taskType}-` : "";
+    var prefixName = prefix != "" && prefix !== "none" ? `${prefix}/` : "";
+
     var taskNameConverted = taskName
       .trim()
       .replace(/\./g, "-")
@@ -44,7 +54,7 @@ const App: React.FC = () => {
       );
     }
 
-    const resultValue = `${taskTypeName}${taskNumber.trim()}-${taskNameConverted}`.replace(
+    const resultValue = `${prefixName}${taskTypeName}${taskNumber.trim()}-${taskNameConverted}`.replace(
       /--/g,
       "-"
     );
@@ -73,7 +83,7 @@ const App: React.FC = () => {
         <legend>Task details:</legend>
 
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="task">
             <label>
               Type of the task
               <select
@@ -82,6 +92,25 @@ const App: React.FC = () => {
                 onChange={e => setTaskType(e.target.value)}
               >
                 {taskTypes.map(item => {
+                  return (
+                    <option key={item.id} value={item.id}>
+                      {item.value}
+                    </option>
+                  );
+                })}
+              </select>
+            </label>
+          </div>
+
+          <div className="task">
+            <label>
+              Prefix
+              <select
+                className="select-type"
+                value={prefix}
+                onChange={e => setPrefix(e.target.value)}
+              >
+                {prefixes.map(item => {
                   return (
                     <option key={item.id} value={item.id}>
                       {item.value}
