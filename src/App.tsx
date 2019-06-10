@@ -27,7 +27,7 @@ const App: React.FC = () => {
 
     var taskTypeName =
       taskType !== "" && taskType !== "none" ? `${taskType}-` : "";
-    var prefixName = prefix != "" && prefix !== "none" ? `${prefix}/` : "";
+    var prefixName = prefix !== "" && prefix !== "none" ? `${prefix}/` : "";
 
     var taskNameConverted = taskName
       .trim()
